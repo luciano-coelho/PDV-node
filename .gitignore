@@ -9,11 +9,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Variáveis de ambiente
-.env
-.env.local
-.env.*.local
-
 # Diretórios de cache
 /.cache
 /.parcel-cache

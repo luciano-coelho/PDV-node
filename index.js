@@ -5,10 +5,33 @@ const produtosRoutes = require('./routes/produtos');
 const pdvRoutes = require('./routes/ponto_de_venda');
 
 // Importa as funções de upsert
-const { upsertClientes } = require('./collection_clientes'); // Importa a função upsertClientes de collection_clientes.js
-const { upsertProdutos } = require('./collection_produtos'); // Importa a função upsertProdutos de collection_produtos.js
+const { upsertClientes } = require('./collection_clientes'); 
+const { upsertProdutos } = require('./collection_produtos');
+
+// Importa bibliotecas para Swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsDoc = require('swagger-jsdoc');
+
+// Importa definição e rotas do Swagger
+const swaggerDefinition = require('./swaggerDef');
+const swaggerRoutes = require('./swaggerRoutes');
 
 const PORT = process.env.PORT || 3000;
+
+// Configuração do Swagger JSDoc
+const swaggerOptions = {
+  swaggerDefinition,
+  apis: [],
+};
+
+// Combina a definição Swagger com as rotas
+const swaggerDocs = {
+  ...swaggerJsDoc(swaggerOptions),
+  paths: swaggerRoutes.paths,
+};
+
+// Configura o Swagger UI no servidor
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Função para inicializar o banco de dados e o servidor
 async function initialize() {
@@ -25,6 +48,7 @@ async function initialize() {
     // Inicia o servidor
     server.listen(PORT, () => {
       console.log(`Servidor rodando em http://localhost:${PORT}`);
+      console.log(`Documentação Swagger disponível em http://localhost:${PORT}/api-docs`);
     });
   } catch (error) {
     console.error("Erro ao inicializar o servidor:", error);

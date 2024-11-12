@@ -13,7 +13,6 @@ const db = require('../db/firebase');
 // As rotas permitem criar, listar, buscar por ID, atualizar e remover produtos no banco de dados Firestore
 const produtosRoutes = (server) => {
 
-  // ===================== 1. Criar Produto (POST /produtos) =====================
   // Rota para criar um novo produto. Recebe dados via POST e armazena um novo produto no Firestore.
   server.post('/produtos', async (req, res) => {
     try {
@@ -31,7 +30,6 @@ const produtosRoutes = (server) => {
     }
   });
 
-  // ===================== 2. Listar Todos os Produtos (GET /produtos) =====================
   // Rota para listar todos os produtos armazenados no Firestore. Retorna uma lista com todos os produtos.
   server.get('/produtos', async (req, res) => {
     try {
@@ -49,7 +47,6 @@ const produtosRoutes = (server) => {
     }
   });
 
-  // ===================== 3. Buscar Produto por ID (GET /produtos/:id) =====================
   // Rota para buscar um produto específico pelo ID. O ID é passado como parâmetro na URL.
   server.get('/produtos/:id', async (req, res) => {
     try {
@@ -75,7 +72,6 @@ const produtosRoutes = (server) => {
     }
   });
 
-  // ===================== 4. Atualizar Produto (PUT /produtos/:id) =====================
   // Rota para atualizar um produto específico pelo ID. Recebe novos dados via PUT.
   server.put('/produtos/:id', async (req, res) => {
     try {
@@ -99,7 +95,6 @@ const produtosRoutes = (server) => {
     }
   });
 
-  // ===================== 5. Remover Produto (DELETE /produtos/:id) =====================
   // Rota para remover um produto específico pelo ID. O ID é passado como parâmetro na URL.
   server.delete('/produtos/:id', async (req, res) => {
     try {

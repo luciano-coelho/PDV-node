@@ -8,7 +8,7 @@ const db = require('../db/firebase');
 // Função que define as rotas relacionadas aos clientes
 const clientesRoutes = (server) => {
   
-  // ===================== 1. Criar Cliente (POST /clientes) =====================
+  
   // Rota para criar um novo cliente. Recebe dados via POST e armazena um novo cliente no Firestore.
   server.post('/clientes', async (req, res) => {
     try {
@@ -31,7 +31,6 @@ const clientesRoutes = (server) => {
     }
   });
 
-  // ===================== 2. Listar Todos os Clientes (GET /clientes) =====================
   // Rota para listar todos os clientes armazenados no Firestore. Retorna uma lista com todos os clientes.
   server.get('/clientes', async (req, res) => {
     try {
@@ -49,7 +48,6 @@ const clientesRoutes = (server) => {
     }
   });
 
-  // ===================== 3. Buscar Cliente por ID (GET /clientes/:id) =====================
   // Rota para buscar um cliente específico pelo ID. O ID é passado como parâmetro na URL.
   server.get('/clientes/:id', async (req, res) => {
     try {
@@ -75,7 +73,6 @@ const clientesRoutes = (server) => {
     }
   });
 
-  // ===================== 4. Atualizar Cliente (PUT /clientes/:id) =====================
   // Rota para atualizar um cliente específico pelo ID. Recebe novos dados via PUT.
   server.put('/clientes/:id', async (req, res) => {
     try {
@@ -104,7 +101,6 @@ const clientesRoutes = (server) => {
     }
   });
 
-  // ===================== 5. Remover Cliente (DELETE /clientes/:id) =====================
   // Rota para remover um cliente específico pelo ID. O ID é passado como parâmetro na URL.
   server.delete('/clientes/:id', async (req, res) => {
     try {
