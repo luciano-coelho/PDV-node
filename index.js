@@ -13,8 +13,8 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
 
 // Importa definição e rotas do Swagger
-const swaggerDefinition = require('./swaggerDef');
-const swaggerRoutes = require('./swaggerRoutes');
+const swaggerDefinition = require('./swagger/swaggerDef');
+const swaggerRoutes = require('./swagger/swaggerRoutes');
 
 const PORT = process.env.PORT || 3000;
 
